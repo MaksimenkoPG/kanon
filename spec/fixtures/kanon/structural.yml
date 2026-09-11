@@ -1,0 +1,5 @@
+<% if true %>
+test:
+  :fixture:
+    :flag: enabled
+<% end %>

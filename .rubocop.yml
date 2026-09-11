@@ -1,0 +1,30 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: enable
+  SuggestExtensions: false
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - 'script/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - '*.gemspec'
+    - 'spec/**/*'
+
+Metrics/ClassLength:
+  Max: 130
+
+Metrics/ModuleLength:
+  Max: 130
+
+Metrics/MethodLength:
+  Max: 15
+  Exclude:
+    - 'script/**/*'

@@ -1,0 +1,9 @@
+default: &default
+  stringy:
+    endpoint: { default: "https://stringy.example.com" }
+    token: ~
+    api:
+      timeout: 5
+
+test:
+  <<: *default

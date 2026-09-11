@@ -1,0 +1,2 @@
+:fixture:
+  :rate: { default: 0.2 }

@@ -1,0 +1,4 @@
+:alpha:
+  :name: "first"
+:beta:
+  :name: { default: "second" }

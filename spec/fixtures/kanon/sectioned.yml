@@ -1,0 +1,13 @@
+default: &default
+  :fixture:
+    :endpoint: "https://fixture.example.com"
+    :token: ~
+    :timeout: { default: 5 }
+    :legacy: { env: FIXTURE_LEGACY_NAME, optional: true }
+    :recipients: { env: FIXTURE_RECIPIENTS, type: list, default: [one@fixture.example.com] }
+
+test:
+  <<: *default
+
+development:
+  <<: *default

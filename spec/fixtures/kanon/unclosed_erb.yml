@@ -1,0 +1,3 @@
+<% if true %>
+test:
+  :fixture: 1

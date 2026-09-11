@@ -1,0 +1,6 @@
+test:
+  :fixture:
+    :queues:
+      - :name: ~
+        :weight: { type: integer, default: 1 }
+      - :name: { env: FIXTURE_BACKUP_QUEUE }

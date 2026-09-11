@@ -1,0 +1,3 @@
+test:
+  :fixture:
+    :value: <%= Integer(ENV.fetch('FIXTURE_SECRET', 'no-secret-here')) %>

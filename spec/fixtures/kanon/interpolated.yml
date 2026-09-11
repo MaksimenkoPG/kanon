@@ -1,0 +1,5 @@
+test:
+  :fixture:
+    :from_erb: <%= ENV.fetch('FIXTURE_ERB_VALUE', 'erb-default') %>
+    :empty_erb: <%= ENV.fetch('FIXTURE_ERB_EMPTY', '') %>
+    :plain: kept

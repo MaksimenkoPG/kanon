@@ -21,7 +21,9 @@ module KanonHelpers
   end
 
   def ruby_without_bundler(script)
-    without_bundler = { 'RUBYOPT' => nil, 'RUBYLIB' => nil, 'BUNDLE_GEMFILE' => nil, 'BUNDLER_VERSION' => nil }
+    without_bundler = {
+      'RUBYOPT' => nil, 'RUBYLIB' => nil, 'BUNDLE_GEMFILE' => nil, 'BUNDLER_VERSION' => nil, 'BUNDLER_SETUP' => nil
+    }
 
     Dir.chdir(REPOSITORY_ROOT) do
       IO.popen(without_bundler, ['ruby', '-e', script], err: %i[child out], &:read)

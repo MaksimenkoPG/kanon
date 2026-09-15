@@ -29,8 +29,7 @@ RSpec.describe Kanon do
       token = Kanon.read_config(:sectioned).token
 
       yaml_backend = Gem.loaded_specs['psych']
-      backend_dependencies = yaml_backend.nil? ? [] : yaml_backend.runtime_dependencies.map(&:name)
-      backend_and_its_own = [*yaml_backend&.name, *backend_dependencies]
+      backend_and_its_own = [yaml_backend.name, *yaml_backend.runtime_dependencies.map(&:name)]
       beyond_stdlib = Gem.loaded_specs.reject { |name, spec| backend_and_its_own.include?(name) || spec.default_gem? }
 
       print [token, beyond_stdlib.keys.sort.join(',')].join('|')

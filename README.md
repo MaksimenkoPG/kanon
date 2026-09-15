@@ -1,5 +1,7 @@
 # Kanon
 
+[![CI](https://github.com/MaksimenkoPG/kanon/actions/workflows/ci.yml/badge.svg)](https://github.com/MaksimenkoPG/kanon/actions/workflows/ci.yml)
+
 One way to read application configuration: a YAML file becomes a frozen tree of
 nodes, and the values that belong to the environment are declared in that same
 file.

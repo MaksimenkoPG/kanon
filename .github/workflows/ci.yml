@@ -54,8 +54,8 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
       - name: Install the psych the positional branch needs
         if: matrix.ruby == '2.7'
         run: gem install psych --version 3.0.3 --no-document
+      - run: bundle install --jobs 4
       - run: bundle exec rspec

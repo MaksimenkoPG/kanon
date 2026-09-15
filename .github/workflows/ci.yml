@@ -59,3 +59,13 @@ jobs:
         run: gem install psych --version 3.0.3 --no-document
       - run: bundle install --jobs 4
       - run: bundle exec rspec
+      - name: The positional branch must not skip here
+        if: matrix.ruby == '2.7'
+        run: |
+          bundle exec rspec --format json \
+            --example 'reads a config through the positional safe_load of psych 3.0' |
+            ruby -rjson -e 'summary = JSON.parse($stdin.read)["summary"]
+                            abort "the positional safe_load branch never ran: #{summary}" unless
+                              summary["example_count"] == 1 &&
+                              summary["pending_count"].zero? &&
+                              summary["failure_count"].zero?'

@@ -26,7 +26,7 @@ jobs:
           - ruby: '3.4'
             os: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
@@ -37,6 +37,8 @@ jobs:
   psych:
     name: psych ${{ matrix.psych }} on ruby ${{ matrix.ruby }}
     runs-on: ${{ matrix.os }}
+    env:
+      PSYCH_VERSION: ${{ matrix.psych }}
     strategy:
       fail-fast: false
       matrix:
@@ -48,7 +50,7 @@ jobs:
             ruby: '3.4'
             os: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
@@ -57,5 +59,3 @@ jobs:
         if: matrix.ruby == '2.7'
         run: gem install psych --version 3.0.3 --no-document
       - run: bundle exec rspec
-        env:
-          PSYCH_VERSION: ${{ matrix.psych }}
